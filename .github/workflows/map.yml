@@ -29,6 +29,9 @@ jobs:
           command: build
           token: ${{ secrets.FURIO_TOKEN }}
           out: _site
+        # The demo's own builds are not counted among the builds of Furio.
+        env:
+          FURIO_TELEMETRY: 0
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
